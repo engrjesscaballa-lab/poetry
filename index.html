@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jvaldez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #2f2a26;
+    }
+
+    .wrapper {
+      max-width: 750px;
+      margin: 90px auto 110px auto;
+      padding: 60px 50px;
+      text-align: center;
+    }
+
+    .top-text {
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: #7a726c;
+      text-transform: uppercase;
+    }
+
+    .author-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 80px;
+      margin: 15px 0 5px 0;
+      color: #1f1b18;
+    }
+
+    .epigraph {
+      font-style: italic;
+      font-size: 15px;
+      color: #8c827a;
+      margin-bottom: 50px;
+    }
+
+    .divider {
+      width: 100px;
+      height: 1px;
+      background: #c9c2bb;
+      margin: 40px auto;
+    }
+
+    /* Featured */
+    .featured {
+      padding: 25px 0;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      margin-bottom: 50px;
+    }
+
+    .featured-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9a9088;
+      margin-bottom: 10px;
+    }
+
+    .featured a {
+      text-decoration: none;
+      font-size: 24px;
+      font-style: italic;
+      color: #2f2a26;
+      transition: all 0.3s ease;
+    }
+
+    .featured a:hover {
+      color: #6f5e53;
+    }
+
+    /* Volume section */
+
+    .volume-title {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #6f5e53;
+      margin-bottom: 25px;
+    }
+
+    .poem-container {
+      width: 340px;
+      height: 210px; /* shows about 4-5 poems */
+      margin: 0 auto 40px auto;
+      overflow-y: auto;
+      scrollbar-width: none;
+
+      /* soft fade mask */
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 10%,
+        black 90%,
+        transparent 100%
+      );
+
+      transition: opacity 0.4s ease;
+    }
+
+    .poem-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .poem-list {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    .poem-list.fade {
+      opacity: 0;
+    }
+
+    .poem-list a {
+      display: block;
+      text-decoration: none;
+      font-size: 20px;
+      margin: 18px 0;
+      color: #2f2a26;
+      transition: all 0.25s ease;
+    }
+
+    .poem-list a:hover {
+      color: #6f5e53;
+      transform: scale(1.03);
+    }
+
+    /* Volume buttons */
+
+    .volumes {
+      margin-top: 10px;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .volumes span {
+      margin: 0 14px;
+      cursor: pointer;
+      color: #7a726c;
+      transition: all 0.3s ease;
+    }
+
+    .volumes span:hover {
+      color: #2f2a26;
+    }
+
+    .volumes .active {
+      color: #1f1b18;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 12px;
+      color: #9a9088;
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      padding-top: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="top-text">Poems and Fragments by</div>
+  <div class="author-name">Julian Valdez</div>
+  <div class="epigraph">For the words I never said aloud.</div>
+
+  <div class="divider"></div>
+
+  <div class="featured">
+    <div class="featured-label">Featured Today</div>
+    <a id="featuredPoem" href="#"></a>
+  </div>
+
+  <div class="volume-title" id="volumeTitle"></div>
+
+  <div class="poem-container">
+    <div id="poemList" class="poem-list"></div>
+  </div>
+
+  <div class="volumes">
+    <span onclick="showVolume(1)" id="vol1" class="active">Volume I</span>
+    <span onclick="showVolume(2)" id="vol2">Volume II</span>
+    <span onclick="showVolume(3)" id="vol3">Volume III</span>
+  </div>
+
+  <footer>© 2026</footer>
+
+</div>
+
+<script>
+  const volumes = {
+    1: {
+      title: "I. Love",
+      poems: [
+        { title: "Smile", link: "smile.html" },
+        { title: "To Know a Poet", link: "poet.html" },
+        { title: "Dear John", link: "john.html" },
+        { title: "I Thought I Saw You Today", link: "sawtoday.html" },
+        { title: "The Bubble Popped", link: "bubble.html" },
+        { title: "The Birth of Spring", link: "spring.html"},
+        { title: "If You Let Me", link: "letme.html"},
+        { title: "If I Were That Kind of Man", link: "kindofman.html"}
+      ]
+    },
+    2: {
+      title: "II. Loss",
+      poems: [
+        { title: "A Silent Plea", link: "plea.html" },
+        { title: "Midnight Tears", link: "tears.html" },
+        { title: "In Your Absence", link: "absence.html" },
+        { title: "Today", link: "today.html" },
+        { title: "Farewell", link: "farewell.html"},
+        { title: "If Only", link: "ifonly.html"}
+      ]
+    },
+    3: {
+      title: "III. Life",
+      poems: [
+        { title: "Cry", link: "cry.html" },
+        { title: "Gone", link: "gone.html" },
+        { title: "Why Do I Keep Walking at Night?", link: "walking.html" },
+        { title: "To A Friend", link: "friendletter.html"},
+        { title: "Only One Home", link: "onehome.html"},
+        { title: "Hope", link: "hope.html"}
+      ]
+    }
+  };
+
+  const poemList = document.getElementById("poemList");
+  const volumeTitle = document.getElementById("volumeTitle");
+
+  function showVolume(number) {
+    poemList.classList.add("fade");
+
+    setTimeout(() => {
+      poemList.innerHTML = "";
+      volumeTitle.textContent = volumes[number].title;
+
+      volumes[number].poems.forEach(poem => {
+        const a = document.createElement("a");
+        a.href = poem.link;
+        a.textContent = poem.title;
+        poemList.appendChild(a);
+      });
+
+      document.querySelectorAll('.volumes span').forEach(v => v.classList.remove('active'));
+      document.getElementById('vol' + number).classList.add('active');
+
+      poemList.classList.remove("fade");
+    }, 200);
+  }
+
+  showVolume(1);
+
+  /* Daily rotating featured */
+  const allPoems = [
+    ...volumes[1].poems,
+    ...volumes[2].poems,
+    ...volumes[3].poems
+  ];
+
+  const today = new Date();
+  const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
+  const index = dayNumber % allPoems.length;
+
+  const featured = document.getElementById("featuredPoem");
+  featured.textContent = allPoems[index].title;
+  featured.href = allPoems[index].link;
+</script>
+
+</body>
+</html>

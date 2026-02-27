@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Today | Julian Valdez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      text-align: center;
+      padding: 90px 30px 70px 30px;
+      color: #2f2a26;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Soft content panel */
+    .content {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 60px 65px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      border-top: 1px solid rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* Navigation */
+    .nav-arrow {
+      position: absolute;
+      top: 25px;
+      text-decoration: none;
+      color: #2f2a26;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      max-width: 170px;
+    }
+
+    .nav-arrow:hover {
+      opacity: 0.6;
+    }
+
+    .prev {
+      left: 30px;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .next {
+      right: 30px;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    h1 {
+      font-style: italic;
+      font-size: 40px;
+      margin-bottom: 55px;
+      color: #1f1b18;
+    }
+
+    .poem {
+      font-size: 17px;
+      line-height: 2.5;
+      margin-bottom: 50px;
+      color: #2f2a26;
+    }
+
+    .author {
+      font-family: 'Great Vibes', cursive;
+      font-size: 22px;
+      margin-top: 45px;
+      color: #3a3430;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #5a524c;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* Back button */
+    .back-container {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .back {
+      font-size: 18px;
+      color: #2f2a26;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .back:hover {
+      opacity: 0.6;
+    }
+
+    .back-text {
+      display: block;
+      font-size: 11px;
+      margin-top: 5px;
+      color: #4a433e;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Previous -->
+  <a href="absence.html" class="nav-arrow prev">
+    <span style="font-size:16px; letter-spacing:1px;">Previous</span>
+    <span style="font-size:13px; font-style:italic; opacity:0.85;">
+      In Your Absence
+    </span>
+  </a>
+
+  <!-- Next -->
+  <a href="farewell.html" class="nav-arrow next">
+    <span style="font-size:16px; letter-spacing:1px;">Next</span>
+    <span style="font-size:13px; font-style:italic; opacity:0.85;">
+      Farewell
+    </span>
+  </a>
+
+  <div class="content">
+
+    <h1>Today</h1>
+
+    <div class="poem">
+      Today,<br>
+      The stars have ceased to twinkle<br>
+      And the moon has lost its glow.<br><br>
+
+      Today,<br>
+      The usual warmth of the night<br>
+      Turned into a bitter chill.<br><br>
+
+      Today,<br>
+      I longed for rain to come and fall,<br>
+      Endless and unbroken.<br><br>
+
+      Today,<br>
+      Familiar faces felt far away,<br>
+      And words were hollow echoes.<br><br>
+
+      Today,<br>
+      Regret clung to me like a shadow,<br>
+      While hope slipped out of reach.<br><br>
+
+      All I could wish<br>
+      Is for today to end<br>
+      And take with it this ache.
+    </div>
+
+    <div class="author">Julian Valdez</div>
+    <div class="date">09.25.2024</div>
+
+  </div>
+
+  <div class="back-container">
+    <a href="index.html" class="back">←</a>
+    <span class="back-text">Back to Homepage</span>
+  </div>
+
+</body>
+</html>
