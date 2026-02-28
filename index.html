@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -11,32 +11,27 @@
   <!-- SEO Description -->
   <meta name="description" content="Official website of Julian Valdez — poetry, reflections, and literary works exploring memory, love, longing, and hope.">
 
-  <!-- Keywords (optional but fine) -->
-  <meta name="keywords" content="Julian Valdez, poetry, poet, poems, literature, reflections, love poetry, Filipino poet, home, memory, loss, longing">
-
   <!-- Author -->
   <meta name="author" content="Julian Valdez">
 
-  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Julian Valdez | Official Website">
   <meta property="og:description" content="Poetry, reflections, and literary works by Julian Valdez.">
   <meta property="og:url" content="https://julesvaldez.com/">
-  <meta property="og:image" content="https://julesvaldez.com/thumbnail.jpg">
+  <meta property="og:image" content="https://julesvaldez.com/background.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Julian Valdez | Official Website">
+  <meta name="twitter:title" content="Julian Valdez | Official Poetry Website">
   <meta name="twitter:description" content="Poetry and literary works by Julian Valdez.">
-  <meta name="twitter:image" content="https://julesvaldez.com/thumbnail.jpg">
+  <meta name="twitter:image" content="https://julesvaldez.com/background.jpg">
 
-  <!-- Favicon (optional) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-</head>
-
 
   <style>
     body {
@@ -82,7 +77,6 @@
       margin: 40px auto;
     }
 
-    /* Featured */
     .featured {
       padding: 25px 0;
       border-top: 1px solid rgba(255,255,255,0.4);
@@ -110,8 +104,6 @@
       color: #6f5e53;
     }
 
-    /* Volume section */
-
     .volume-title {
       font-size: 14px;
       letter-spacing: 3px;
@@ -122,41 +114,17 @@
 
     .poem-container {
       width: 340px;
-      height: 210px; /* shows about 4-5 poems */
+      height: 210px;
       margin: 0 auto 40px auto;
       overflow-y: auto;
       scrollbar-width: none;
-
-      /* soft fade mask */
-      -webkit-mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-      );
-      mask-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        black 10%,
-        black 90%,
-        transparent 100%
-      );
-
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
       transition: opacity 0.4s ease;
     }
 
     .poem-container::-webkit-scrollbar {
       display: none;
-    }
-
-    .poem-list {
-      opacity: 1;
-      transition: opacity 0.4s ease;
-    }
-
-    .poem-list.fade {
-      opacity: 0;
     }
 
     .poem-list a {
@@ -173,8 +141,6 @@
       transform: scale(1.03);
     }
 
-    /* Volume buttons */
-
     .volumes {
       margin-top: 10px;
       font-size: 13px;
@@ -185,11 +151,6 @@
       margin: 0 14px;
       cursor: pointer;
       color: #7a726c;
-      transition: all 0.3s ease;
-    }
-
-    .volumes span:hover {
-      color: #2f2a26;
     }
 
     .volumes .active {
@@ -205,11 +166,13 @@
       border-top: 1px solid rgba(255,255,255,0.4);
       padding-top: 20px;
     }
-
   </style>
 </head>
 
 <body>
+
+<!-- Hidden image for social crawlers -->
+<img src="background.jpg" alt="Julian Valdez Poetry Background" style="display:none;">
 
 <div class="wrapper">
 
@@ -236,7 +199,7 @@
     <span onclick="showVolume(3)" id="vol3">Volume III</span>
   </div>
 
-  <footer>© 2026</footer>
+  <footer>© 2026 Julian Valdez</footer>
 
 </div>
 
@@ -283,29 +246,22 @@
   const volumeTitle = document.getElementById("volumeTitle");
 
   function showVolume(number) {
-    poemList.classList.add("fade");
+    poemList.innerHTML = "";
+    volumeTitle.textContent = volumes[number].title;
 
-    setTimeout(() => {
-      poemList.innerHTML = "";
-      volumeTitle.textContent = volumes[number].title;
+    volumes[number].poems.forEach(poem => {
+      const a = document.createElement("a");
+      a.href = poem.link;
+      a.textContent = poem.title;
+      poemList.appendChild(a);
+    });
 
-      volumes[number].poems.forEach(poem => {
-        const a = document.createElement("a");
-        a.href = poem.link;
-        a.textContent = poem.title;
-        poemList.appendChild(a);
-      });
-
-      document.querySelectorAll('.volumes span').forEach(v => v.classList.remove('active'));
-      document.getElementById('vol' + number).classList.add('active');
-
-      poemList.classList.remove("fade");
-    }, 200);
+    document.querySelectorAll('.volumes span').forEach(v => v.classList.remove('active'));
+    document.getElementById('vol' + number).classList.add('active');
   }
 
   showVolume(1);
 
-  /* Daily rotating featured */
   const allPoems = [
     ...volumes[1].poems,
     ...volumes[2].poems,
