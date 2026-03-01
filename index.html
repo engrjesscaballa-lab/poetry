@@ -1,280 +1,447 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Julian Valdez | Official Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Julian Valdez | Official Website</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Verification -->
-  <meta name="google-site-verification" content="YOUR_GOOGLE_CODE_HERE" />
+<meta name="description" content="Official website of Julian Valdez — poetry, reflections, and literary works exploring memory, love, longing, and hope.">
+<meta name="author" content="Julian Valdez">
 
-  <!-- SEO Description -->
-  <meta name="description" content="Official website of Julian Valdez — poetry, reflections, and literary works exploring memory, love, longing, and hope.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <!-- Author -->
-  <meta name="author" content="Julian Valdez">
+<style>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Julian Valdez | Official Website">
-  <meta property="og:description" content="Poetry, reflections, and literary works by Julian Valdez.">
-  <meta property="og:url" content="https://julesvaldez.com/">
-  <meta property="og:image" content="https://julesvaldez.com/background.jpg">
+/* PAGE FADE-IN */
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Julian Valdez | Official Poetry Website">
-  <meta name="twitter:description" content="Poetry and literary works by Julian Valdez.">
-  <meta name="twitter:image" content="https://julesvaldez.com/background.jpg">
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #2f2a26;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+body.loaded {
+  opacity: 1;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+.wrapper {
+  max-width: 950px;
+  margin: 40px auto 120px auto;
+  padding: 40px 5vw;
+  text-align: center;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #2f2a26;
-    }
+/* HEADER */
 
-    .wrapper {
-      max-width: 750px;
-      margin: 90px auto 110px auto;
-      padding: 60px 50px;
-      text-align: center;
-    }
+.top-text {
+  font-size: clamp(11px, 1.2vw, 13px);
+  letter-spacing: 4px;
+  color: #7a726c;
+  text-transform: uppercase;
+}
 
-    .top-text {
-      font-size: 13px;
-      letter-spacing: 3px;
-      color: #7a726c;
-      text-transform: uppercase;
-    }
+.author-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(50px, 8vw, 95px);
+  margin: 15px 0 40px 0;
+  color: #1f1b18;
+}
 
-    .author-name {
-      font-family: 'Great Vibes', cursive;
-      font-size: 80px;
-      margin: 15px 0 5px 0;
-      color: #1f1b18;
-    }
+/* SEARCH */
 
-    .epigraph {
-      font-style: italic;
-      font-size: 15px;
-      color: #8c827a;
-      margin-bottom: 50px;
-    }
+.search-container {
+  margin: 0 auto 80px auto;
+  position: relative;
+  max-width: 420px;
+}
 
-    .divider {
-      width: 100px;
-      height: 1px;
-      background: #c9c2bb;
-      margin: 40px auto;
-    }
+.search-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: clamp(14px, 1.2vw, 16px);
+  border: 1px solid rgba(0,0,0,0.18);
+  background: rgba(255,255,255,0.65);
+  font-family: Georgia, serif;
+}
 
-    .featured {
-      padding: 25px 0;
-      border-top: 1px solid rgba(255,255,255,0.4);
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      margin-bottom: 50px;
-    }
+.search-input:focus {
+  outline: none;
+  border-color: #6f5e53;
+}
 
-    .featured-label {
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #9a9088;
-      margin-bottom: 10px;
-    }
+.search-results {
+  position: absolute;
+  width: 100%;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-top: none;
+  display: none;
+  text-align: left;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 10;
+}
 
-    .featured a {
-      text-decoration: none;
-      font-size: 24px;
-      font-style: italic;
-      color: #2f2a26;
-      transition: all 0.3s ease;
-    }
+.search-results div {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
 
-    .featured a:hover {
-      color: #6f5e53;
-    }
+.search-results div:hover {
+  background: #f4f4f4;
+}
 
-    .volume-title {
-      font-size: 14px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #6f5e53;
-      margin-bottom: 25px;
-    }
+/* FEATURED */
 
-    .poem-container {
-      width: 340px;
-      height: 210px;
-      margin: 0 auto 40px auto;
-      overflow-y: auto;
-      scrollbar-width: none;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
-      transition: opacity 0.4s ease;
-    }
+.featured {
+  margin: 100px 0 70px 0;
+  padding: 60px 0;
+}
 
-    .poem-container::-webkit-scrollbar {
-      display: none;
-    }
+.featured::before,
+.featured::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 1px;
+  background: #c7c0b8;
+  margin: 0 auto 35px auto;
+}
 
-    .poem-list a {
-      display: block;
-      text-decoration: none;
-      font-size: 20px;
-      margin: 18px 0;
-      color: #2f2a26;
-      transition: all 0.25s ease;
-    }
+.featured::after {
+  margin: 40px auto 0 auto;
+}
 
-    .poem-list a:hover {
-      color: #6f5e53;
-      transform: scale(1.03);
-    }
+.featured-label {
+  font-size: clamp(10px, 1vw, 12px);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #8c827a;
+  margin-bottom: 30px;
+}
 
-    .volumes {
-      margin-top: 10px;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
+.featured-title {
+  font-size: clamp(32px, 6vw, 60px);
+  font-style: italic;
+  color: #1f1b18;
+  margin-bottom: 25px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
 
-    .volumes span {
-      margin: 0 14px;
-      cursor: pointer;
-      color: #7a726c;
-    }
+.featured-title:hover {
+  color: #6f5e53;
+}
 
-    .volumes .active {
-      color: #1f1b18;
-      font-weight: bold;
-    }
+.featured-cue {
+  font-size: clamp(13px, 1.2vw, 15px);
+  letter-spacing: 1px;
+  color: #7a726c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    footer {
-      margin-top: 80px;
-      font-size: 12px;
-      color: #9a9088;
-      letter-spacing: 1px;
-      border-top: 1px solid rgba(255,255,255,0.4);
-      padding-top: 20px;
-    }
-  </style>
+.featured-cue:hover {
+  letter-spacing: 2px;
+  color: #2f2a26;
+}
+
+/* VOLUMES */
+
+.volumes {
+  margin: 50px 0 50px 0;
+}
+
+.volumes span {
+  margin: 0 24px;
+  cursor: pointer;
+  font-size: clamp(14px, 1.5vw, 18px);
+  letter-spacing: 4px;
+  color: #8c827a;
+  transition: all 0.3s ease;
+}
+
+.volumes span:hover {
+  color: #2f2a26;
+}
+
+.volumes .active {
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  color: #1f1b18;
+}
+
+/* POEM LIST */
+
+.poem-container {
+  width: 100%;
+  max-width: 420px;
+  height: 240px;
+  margin: 0 auto 60px auto;
+  overflow-y: auto;
+  padding-left: 10px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.poem-container::-webkit-scrollbar {
+  display: none;
+}
+
+.poem-list {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.poem-list.fade {
+  opacity: 0;
+}
+
+.poem-list a {
+  display: block;
+  text-decoration: none;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 2;
+  margin: 10px 0;
+  color: #2f2a26;
+  position: relative;
+}
+
+.poem-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background: #6f5e53;
+  transition: width 0.3s ease;
+}
+
+.poem-list a:hover::after {
+  width: 100%;
+}
+
+/* ABOUT */
+
+.about-section {
+  margin-top: 100px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.about-title {
+  text-align: center;
+  font-size: clamp(10px, 1vw, 12px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8c827a;
+  margin-bottom: 30px;
+}
+
+.about-content {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.about-text {
+  flex: 1;
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.9;
+  text-align: justify;
+  color: #5f5751;
+}
+
+.about-photo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+footer {
+  margin-top: 100px;
+  font-size: 12px;
+  color: #9a9088;
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(255,255,255,0.4);
+  padding-top: 25px;
+}
+
+/* MOBILE REFINEMENT */
+
+@media (max-width: 700px) {
+
+  .wrapper {
+    padding: 40px 6vw;
+  }
+
+  .volumes span {
+    display: block;
+    margin: 14px 0;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: justify;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- Hidden image for social crawlers -->
-<img src="background.jpg" alt="Julian Valdez Poetry Background" style="display:none;">
-
 <div class="wrapper">
 
-  <div class="top-text">Poems and Fragments by</div>
-  <div class="author-name">Julian Valdez</div>
-  <div class="epigraph">For the words I never said aloud.</div>
+<div class="top-text">Poems and Fragments by</div>
+<div class="author-name">Julian Valdez</div>
 
-  <div class="divider"></div>
+<div class="search-container">
+  <input type="text" id="searchInput" class="search-input" placeholder="Search a title">
+  <div id="searchResults" class="search-results"></div>
+</div>
 
-  <div class="featured">
-    <div class="featured-label">Featured Today</div>
-    <a id="featuredPoem" href="#"></a>
+<div class="featured">
+  <div class="featured-label">FEATURED TODAY</div>
+  <div id="featuredTitle" class="featured-title"></div>
+  <div id="featuredCue" class="featured-cue">Take Me There →</div>
+</div>
+
+<div class="volumes">
+  <span onclick="showVolume(1)" id="vol1" class="active">I. Love</span>
+  <span onclick="showVolume(2)" id="vol2">II. Loss</span>
+  <span onclick="showVolume(3)" id="vol3">III. Life</span>
+</div>
+
+<div class="poem-container">
+  <div id="poemList" class="poem-list"></div>
+</div>
+
+<div class="about-section">
+  <div class="about-title">About the Author</div>
+  <div class="about-content">
+    <div class="about-text">
+      A chemical engineer by profession, she has written poetry since high school.
+      An old soul who prefers quiet corners, she loves nature, long hours of reading,
+      and the works of Austen, Dostoevsky, and Auden—often with Beethoven, Liszt,
+      or Brahms playing in the background. Writing under the pen name Julian Valdez,
+      she was born and raised between the hills and the sea in a remote province in the Philippines.
+    </div>
+    <img src="author.jpg" alt="Julian Valdez" class="about-photo">
   </div>
+</div>
 
-  <div class="volume-title" id="volumeTitle"></div>
-
-  <div class="poem-container">
-    <div id="poemList" class="poem-list"></div>
-  </div>
-
-  <div class="volumes">
-    <span onclick="showVolume(1)" id="vol1" class="active">Volume I</span>
-    <span onclick="showVolume(2)" id="vol2">Volume II</span>
-    <span onclick="showVolume(3)" id="vol3">Volume III</span>
-  </div>
-
-  <footer>© 2026 Julian Valdez</footer>
+<footer>© 2026 Julian Valdez</footer>
 
 </div>
 
 <script>
-  const volumes = {
-    1: {
-      title: "I. Love",
-      poems: [
-        { title: "Smile", link: "smile.html" },
-        { title: "To Know a Poet", link: "poet.html" },
-        { title: "Dear John", link: "john.html" },
-        { title: "I Thought I Saw You Today", link: "sawtoday.html" },
-        { title: "The Bubble Popped", link: "bubble.html" },
-        { title: "The Birth of Spring", link: "spring.html"},
-        { title: "If You Let Me", link: "letme.html"},
-        { title: "If I Were That Kind of Man", link: "kindofman.html"}
-      ]
-    },
-    2: {
-      title: "II. Loss",
-      poems: [
-        { title: "A Silent Plea", link: "plea.html" },
-        { title: "Midnight Tears", link: "tears.html" },
-        { title: "In Your Absence", link: "absence.html" },
-        { title: "Today", link: "today.html" },
-        { title: "Farewell", link: "farewell.html"},
-        { title: "If Only", link: "ifonly.html"}
-      ]
-    },
-    3: {
-      title: "III. Life",
-      poems: [
-        { title: "Cry", link: "cry.html" },
-        { title: "Gone", link: "gone.html" },
-        { title: "Why Do I Keep Walking at Night?", link: "walking.html" },
-        { title: "To A Friend", link: "friendletter.html"},
-        { title: "Only One Home", link: "onehome.html"},
-        { title: "Hope", link: "hope.html"}
-      ]
-    }
-  };
 
-  const poemList = document.getElementById("poemList");
-  const volumeTitle = document.getElementById("volumeTitle");
+window.addEventListener("load", function() {
+  document.body.classList.add("loaded");
+});
 
-  function showVolume(number) {
+const poems = [
+  { title: "Smile", link: "smile.html", volume: 1 },
+  { title: "To Know a Poet", link: "poet.html", volume: 1 },
+  { title: "Dear John", link: "john.html", volume: 1 },
+  { title: "I Thought I Saw You Today", link: "sawtoday.html", volume: 1 },
+  { title: "The Bubble Popped", link: "bubble.html", volume: 1 },
+  { title: "The Birth of Spring", link: "spring.html", volume: 1 },
+  { title: "If You Let Me", link: "letme.html", volume: 1 },
+  { title: "If I Were That Kind of Man", link: "kindofman.html", volume: 1 },
+  { title: "Moonflowers", link: "moonflowers.html", volume: 1 },
+  { title: "Yours", link: "yours.html", volume: 1 },
+  { title: "A Silent Plea", link: "plea.html", volume: 2 },
+  { title: "Midnight Tears", link: "tears.html", volume: 2 },
+  { title: "In Your Absence", link: "absence.html", volume: 2 },
+  { title: "Today", link: "today.html", volume: 2 },
+  { title: "Farewell", link: "farewell.html", volume: 2 },
+  { title: "If Only", link: "ifonly.html", volume: 2 },
+  { title: "Cry", link: "cry.html", volume: 3 },
+  { title: "Gone", link: "gone.html", volume: 3 },
+  { title: "Why Do I Keep Walking at Night?", link: "walking.html", volume: 3 },
+  { title: "To A Friend", link: "friendletter.html", volume: 3 },
+  { title: "Only One Home", link: "onehome.html", volume: 3 },
+  { title: "Hope", link: "hope.html", volume: 3 }
+];
+
+const poemList = document.getElementById("poemList");
+
+function showVolume(number) {
+  poemList.classList.add("fade");
+
+  setTimeout(() => {
     poemList.innerHTML = "";
-    volumeTitle.textContent = volumes[number].title;
 
-    volumes[number].poems.forEach(poem => {
-      const a = document.createElement("a");
-      a.href = poem.link;
-      a.textContent = poem.title;
-      poemList.appendChild(a);
-    });
+    poems
+      .filter(p => p.volume === number)
+      .forEach(p => {
+        const a = document.createElement("a");
+        a.href = p.link;
+        a.textContent = p.title;
+        poemList.appendChild(a);
+      });
 
-    document.querySelectorAll('.volumes span').forEach(v => v.classList.remove('active'));
-    document.getElementById('vol' + number).classList.add('active');
+    poemList.classList.remove("fade");
+
+    document.querySelectorAll('.volumes span')
+      .forEach(v => v.classList.remove('active'));
+
+    document.getElementById('vol' + number)
+      .classList.add('active');
+  }, 200);
+}
+
+showVolume(1);
+
+const today = new Date();
+const index = Math.floor(today.getTime() / (1000 * 60 * 60 * 24)) % poems.length;
+
+document.getElementById("featuredTitle").textContent = poems[index].title;
+document.getElementById("featuredTitle").onclick = () => window.location.href = poems[index].link;
+document.getElementById("featuredCue").onclick = () => window.location.href = poems[index].link;
+
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+
+searchInput.addEventListener("input", function() {
+  const query = this.value.toLowerCase();
+  searchResults.innerHTML = "";
+
+  if (!query) {
+    searchResults.style.display = "none";
+    return;
   }
 
-  showVolume(1);
+  const matches = poems.filter(p => p.title.toLowerCase().includes(query));
 
-  const allPoems = [
-    ...volumes[1].poems,
-    ...volumes[2].poems,
-    ...volumes[3].poems
-  ];
+  matches.forEach(match => {
+    const div = document.createElement("div");
+    div.textContent = match.title;
+    div.onclick = () => window.location.href = match.link;
+    searchResults.appendChild(div);
+  });
 
-  const today = new Date();
-  const dayNumber = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
-  const index = dayNumber % allPoems.length;
+  searchResults.style.display = matches.length ? "block" : "none";
+});
 
-  const featured = document.getElementById("featuredPoem");
-  featured.textContent = allPoems[index].title;
-  featured.href = allPoems[index].link;
 </script>
 
 </body>
