@@ -6,12 +6,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
-
     body {
       margin: 0;
       font-family: Georgia, serif;
       text-align: center;
-      padding: 90px 5vw 70px 5vw;
+      padding: 90px 30px 70px 30px;
       color: #2f2a26;
       background: url('background.jpg') no-repeat center center fixed;
       background-size: cover;
@@ -20,9 +19,9 @@
 
     /* Soft content panel */
     .content {
-      max-width: 700px;
+      max-width: 650px;
       margin: 0 auto;
-      padding: 60px 6vw;
+      padding: 55px 65px;
       background: rgba(255,255,255,0.14);
       backdrop-filter: blur(4px);
       border-top: 1px solid rgba(255,255,255,0.4);
@@ -32,13 +31,13 @@
     /* Navigation */
     .nav-arrow {
       position: absolute;
-      top: 30px;
+      top: 25px;
       text-decoration: none;
       color: #2f2a26;
       transition: opacity 0.3s ease;
       display: flex;
       flex-direction: column;
-      max-width: 200px;
+      max-width: 220px;
     }
 
     .nav-arrow:hover {
@@ -59,21 +58,21 @@
 
     h1 {
       font-style: italic;
-      font-size: clamp(28px, 4vw, 42px);
-      margin-bottom: 60px;
+      font-size: 38px;
+      margin-bottom: 55px;
       color: #1f1b18;
     }
 
     .poem {
-      font-size: clamp(15px, 1.4vw, 18px);
+      font-size: 17px;
       line-height: 2.2;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
       color: #2f2a26;
     }
 
     .author {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(20px, 2vw, 26px);
+      font-size: 22px;
       margin-top: 50px;
       color: #3a3430;
     }
@@ -87,12 +86,12 @@
 
     /* Back button */
     .back-container {
-      margin-top: 70px;
+      margin-top: 60px;
       text-align: center;
     }
 
     .back {
-      font-size: 20px;
+      font-size: 18px;
       color: #2f2a26;
       text-decoration: none;
       transition: opacity 0.3s ease;
@@ -105,36 +104,20 @@
     .back-text {
       display: block;
       font-size: 11px;
-      margin-top: 6px;
+      margin-top: 5px;
       color: #4a433e;
       letter-spacing: 2px;
       text-transform: uppercase;
-    }
-
-    /* Mobile refinement */
-    @media (max-width: 700px) {
-
-      .nav-arrow {
-        position: static;
-        margin-bottom: 20px;
-      }
-
-      .prev,
-      .next {
-        align-items: center;
-        text-align: center;
-      }
-
     }
 
   </style>
 </head>
 
 <body>
-
+  
   <!-- Previous -->
   <a href="kindofman.html" class="nav-arrow prev">
-    <span style="font-size:15px; letter-spacing:1px;">Previous</span>
+    <span style="font-size:16px; letter-spacing:1px;">Previous</span>
     <span style="font-size:13px; font-style:italic; opacity:0.85;">
       If I Were That Kind of Man
     </span>
@@ -142,7 +125,7 @@
 
   <!-- Next -->
   <a href="yours.html" class="nav-arrow next">
-    <span style="font-size:15px; letter-spacing:1px;">Next</span>
+    <span style="font-size:16px; letter-spacing:1px;">Next</span>
     <span style="font-size:13px; font-style:italic; opacity:0.85;">
       Yours
     </span>
